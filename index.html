@@ -1,0 +1,129 @@
+<!--
+	*Team Awesome
+	*Erick Sauri
+	*Richard Weiss
+	*Project 1: Audio Visualizer
+	*IGME 330 - Rich Media Web App Development
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Team Awesome - Audio Visualizer</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Audio Visualizer group project created for Rich Media Web Application Development by Richard Weiss and Erick Sauri.">
+    <meta name="keywords" content="Audio Visualizer Rich Media Web App Dev">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href=""> <!-- Favicon -->
+	<link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
+	<link href="css/style.min.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+	<header class="sidebar">
+		<section class="controls">
+			<h1>Audio Visualizer</h1>
+			<h3>by Team Awesome</h2>
+			<ul>
+				<li>
+					<label><h2>Track:</h2>
+						<select id="trackSelect">
+							<option value="media/Toca Madera.mp3">Toca Madera</option>
+							<option value="media/Soñar es mi juego.mp3">Soñar es mi juego</option>
+							<option value="media/'Cause I'm a Man.mp3">'Cause I'm a Man</option>
+							<option value="media/Lux Aeterna.mp3">Lux Aeterna</option>
+						</select>
+					</label>
+				</li>
+				<li>Now Playing: <span id="status">Song</span></li>
+			</ul>
+				<h2>Audio Mode</h2>
+			<ul>
+				<li title="Display Audio Data as Bars.">
+					<label for="showBars">Bars</label>
+					<input type="checkbox" id="showBars" checked>
+				</li>
+				<li title="Display Audio Data as Lines.">
+					<label for="showLines">Lines</label>
+					<input type="checkbox" id="showLines">
+				</li>
+				<li title="Display Audio Data as Rectangles.">
+					<label for="showRect">Rectangles</label>
+					<input type="checkbox" id="showRect">
+				</li>
+				<li title="Paint on the canvas using the Audio Data as a brush">
+					<label for="paint">Paint</label>
+					<input type="checkbox" id="paint">
+				</li>
+				<li class="paint">
+					<button id="save" class="cta">Save</button>
+					<button id="clear">Clear</button>
+				</li>
+				 <li title="Invert the colors of the drawing">
+					<label for="invert">Invert</label>
+					<input type="checkbox" id="invert">
+				</li>
+			</ul>
+				<h2>Controls</h2>
+			<ul>
+				<li title="Display Audio Data Frequency or Waveform.">
+					<label>Audio Visualizer:
+						<select id="audioForm">
+							<option value="frequency">Frequency</option>
+							<option value="waveform">Waveform</option>
+						</select>
+					</label>
+				</li>
+				<li title="Change the color of the drawing">
+				<label>Color:
+						<select id="colorSelect">
+							<option value="gradient">Gradient</option>
+							<option value="#e74c3c">Red</option>
+							<option value="#F66B34">Orange</option>
+							<option value="#F2D639">Yellow</option>
+							<option value="#2E9F82">Green</option>
+							<option value="#4AA0D5">Aqua</option>
+							<option value="#5480f1">Blue</option>
+							<option value="#373a47">Purple</option>
+							<option value="#343434">Black</option>
+							<option value="#f3f6fa">White</option>
+						</select>
+					</label>
+				</li>
+				<li title="Increase the radius or amplitude of the drawing.">
+					<label for="radiusSlider">Radius Slider: <span id="radiusSliderResults">1</span></label>
+					<input id="radiusSlider" type ="range" min ="1" max="3" step ="0.5" value ="1"/>
+				</li>
+				<li title="Increase the delay of the drawing.">
+					<label for="reverbSlider">Reverb: <span id="reverbSliderResults">0.5s</span></label>	<br />
+					<input id="reverbSlider" type ="range" min ="0" max="3" step ="0.5" value ="0.5"/>
+				</li>
+				<li>
+					<button id="fsButton" class="fit">Go Full Screen</button>
+				</li>
+			</ul>
+			<button id="close-button"></button>
+		</section> <!-- End of controls -->
+		<audio controls loop></audio>
+	</header> <!-- End of Sidebar -->
+	<button class="menu-button" id="open-button"></button>
+	<main>
+		<canvas id="canvas">
+			<section class="content">
+				<h1>Audio Visualizer</h2>
+				<h2>Team Awesome</h2>
+				<p>Erick Sauri &amp; Richard Weiss</p>
+				<p>It seems you don't either don't have Javascript enabled or your browser doesn't support canvas. Please enable Javascript or download one of these browsers to view this page correctly:</p>
+				<ul>
+					<li><a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">Google Chrome</a></li>
+					<li><a href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank">Microsoft Edge</a></li>
+					<li><a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a></li>
+				</ul>
+			</section>
+		</canvas>
+		<canvas id="topCanvas"></canvas>
+		<a href="../index.html" class="logo"><img width="32" height="32" src="../media/navicons/logowhite.svg" /></a>
+ </main>
+	<!-- Scripts -->
+	<script src="js/init.min.js"></script>
+	<script src="js/audio.min.js"></script>
+</body>
+</html>

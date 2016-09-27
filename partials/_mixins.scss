@@ -1,0 +1,55 @@
+// center vertically and/or horizontally an absolute positioned element
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin line-icon($bg: $color-bg, $fg: $color-fg-bold) {
+	@include icon;
+	$size: 1px;
+
+	&:before {
+		color: $bg !important;
+		text-shadow:	$size 0 0 $color-white,
+						($size * -1) 0 0 $color-white,
+						0 $size 0 $fg,
+						0 ($size * -1) 0 $color-white;
+	}
+}
+
+@mixin icon($content: false) {
+	text-decoration: none;
+
+	&:before {
+		@if $content {
+			content: $content;
+		}
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
+}
